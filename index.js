@@ -46,7 +46,22 @@ client.on("guildMemberAdd", async (member) => {
       .setTitle("Welcome aboard Air France | PTFS ✈️")
       .setDescription(
         `Hey ${member}, welcome to the server!\n\n` +
-          `Check out the rules and info to get started.\n\n` +
+          `Hey welcome to the server!
+
+✈️ Bienvenue
+
+Welcome aboard Air France | PTFS We’re delighted to have you join our community. 🛫
+
+Merci d’avoir rejoint le serveur! Whether you’re here to fly, roleplay, meet new people, or simply enjoy PTFS, we hope you have a très bonne expérience with us!
+
+🎫 Before getting started, please take a moment to check out our rules, information, and available flights so you know everything you need before takeoff.
+
+☕ Sit back, relax, and enjoy your time with us!
+
+Thank you for choosing Air France. Merci de choisir Air France!
+Bon vol et à bientôt dans les airs! ✈️.
+
+Have a great flight! 🛫.\n\n` +
           `Have a great flight! 🛫`
       )
       .setImage("attachment://welcome-banner.png")
