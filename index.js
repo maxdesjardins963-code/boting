@@ -1,21 +1,20 @@
 // Air France | PTFS — Welcome Bot
-// Sends a welcome embed when a new member joins the server.
 
-const {
-  Client,
-  GatewayIntentBits,
-  EmbedBuilder,
-  AttachmentBuilder,
-} = require("discord.js");
+const http = require("http");
+const PORT = process.env.PORT || 3000;
+http.createServer((req, res) => res.end("Bot is running")).listen(PORT, () => {
+  console.log(`🌐 Dummy server listening on port ${PORT}`);
+});
+
+const { Client, GatewayIntentBits, EmbedBuilder } = require("discord.js");
 
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMembers, // required to detect new joins
+    GatewayIntentBits.GuildMembers,
   ],
 });
 
-// ---- Config (set these as environment variables on Render) ----
 const TOKEN = process.env.DISCORD_TOKEN;
 const WELCOME_CHANNEL_ID = process.env.WELCOME_CHANNEL_ID;
 
@@ -33,24 +32,19 @@ client.on("guildMemberAdd", async (member) => {
 
     const memberCount = member.guild.memberCount;
 
-    const banner = new AttachmentBuilder("./assets/airfrance-banner.png", {
-      name: "airfrance-banner.png",
-    });
-
     const embed = new EmbedBuilder()
-      .setColor(0x002157) // Air France navy blue
+      .setColor(0x002157)
       .setTitle("Welcome aboard Air France | PTFS ✈️")
       .setDescription(
         `Hey ${member}, welcome to the server!\n\n` +
           `Check out the rules and info to get started.\n\n` +
           `Have a great flight! 🛫`
       )
-      .setImage("attachment://airfrance-banner.png")
       .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
       .setFooter({ text: `Member #${memberCount}` })
       .setTimestamp();
 
-    await channel.send({ embeds: [embed], files: [banner] });
+    await channel.send({ embeds: [embed] });
   } catch (err) {
     console.error("❌ Error sending welcome message:", err);
   }
