@@ -37,7 +37,7 @@ client.on("guildMemberAdd", async (member) => {
 
     const memberCount = member.guild.memberCount;
 
-    const banner = new AttachmentBuilder("./Capture d'écran 2026-09-08 165923.png", {
+    const banner = new AttachmentBuilder("./Capture d'écran 2026-09-08 183039.png", {
       name: "welcome-banner.png",
     });
 
