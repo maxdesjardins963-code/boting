@@ -46,8 +46,7 @@ client.on("guildMemberAdd", async (member) => {
       .setTitle("Welcome aboard Air France | PTFS ✈️")
       .setDescription(
         `Hey ${member}, welcome to the server!\n\n` +
-          `Hey welcome to the server!
-
+          `
 ✈️ Bienvenue
 
 Welcome aboard Air France | PTFS We’re delighted to have you join our community. 🛫
@@ -62,7 +61,7 @@ Thank you for choosing Air France. Merci de choisir Air France!
 Bon vol et à bientôt dans les airs! ✈️.
 
 Have a great flight! 🛫.\n\n` +
-          `Have a great flight! 🛫`
+          ``
       )
       .setImage("attachment://welcome-banner.png")
       .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
